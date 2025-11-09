@@ -8,7 +8,7 @@ This script:
   • Sweeps temporal delay by translating birefringent wedges with a Zaber stage
     (Binary protocol over serial).
   • At each (temperature, delay) point, acquires counts for V, H, C and their
-    estimated errors using `meas_dir_1sec`.
+    estimated errors using `meas_dir`.
   • Saves each temperature line as a CSV-like .dat file.
 
 Dependencies (as used in the original code):
@@ -32,7 +32,7 @@ import pandas as pd
 import instruments as ik
 from pathlib import Path
 from zaber.serial import BinarySerial, BinaryCommand
-from meas_dir_1sec import meas_dir_1sec
+from meas_dir import meas_dir
 # from meas_dir import meas_dir  # Kept for parity if you need the alternative
 
 # ----------------------------- User-configurable ----------------------------- #
@@ -64,7 +64,7 @@ PRE_LOOP_SLEEP_S   = 5.0
 PRE_SCAN_HOME_WAIT = 10.0
 
 # Meas params
-# meas_dir_1sec(5) -> 5 seconds integration (as per original)
+# meas_dir(5) -> 5 seconds integration (as per original)
 MEAS_SECONDS = 5
 
 
